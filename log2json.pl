@@ -118,7 +118,7 @@ FILE: foreach my $file (@ARGV ? @ARGV : ('-')) {
 		++$lineno;
 
 		unless ($line =~ $log_format) {
-			printf STDERR "[%s #%d] unable to parse\n", $file, $lineno;
+			printf STDERR "[%s #%d] unable to parse line\n", $file, $lineno;
 			next LINE;
 		}
 
