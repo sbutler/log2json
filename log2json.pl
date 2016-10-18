@@ -15,52 +15,52 @@ use URI::QueryParam;
 my %log_formats = (
 	common			=> qr{
 						^
-						(?<host>\S+)\
-						(?<rfc>\S+)\
-						(?<authuser>\S+)\
-						\[(?<date>[^\]]+)\]\
-						\"(?<request>.*?)\"\
-						(?<status>\d+)\
+						(?<host>\S+)			\s
+						(?<rfc>\S+)				\s
+						(?<authuser>\S+)		\s
+						\[(?<date>[^\]]+)\]		\s
+						\"(?<request>.*?)\"		\s
+						(?<status>\d+)			\s
 						(?<bytes>-|\d+)
 					}ox,
 
 	vhost_common 	=> qr{
 						^
-						(?<vhost>\S+)\
-						(?<host>\S+)\
-						(?<rfc>\S+)\
-						(?<authuser>\S+)\
-						\[(?<date>[^\]]+)\]\
-						\"(?<request>.*?)\"\
-						(?<status>\d+)\
+						(?<vhost>\S+)			\s
+						(?<host>\S+)			\s
+						(?<rfc>\S+)				\s
+						(?<authuser>\S+)		\s
+						\[(?<date>[^\]]+)\]		\s
+						\"(?<request>.*?)\"		\s
+						(?<status>\d+)			\s
 						(?<bytes>-|\d+)
 					}ox,
 
 
 	combined		=> qr{
 						^
-						(?<host>\S+)\
-						(?<rfc>\S+)\
-						(?<authuser>\S+)\
-						\[(?<date>[^\]]+)\]\
-						\"(?<request>.*?)\"\
-						(?<status>\d+)\
-						(?<bytes>-|\d+)\
-						\"(?<referer>.*?)\"\
+						(?<host>\S+)			\s
+						(?<rfc>\S+)				\s
+						(?<authuser>\S+)		\s
+						\[(?<date>[^\]]+)\]		\s
+						\"(?<request>.*?)\"		\s
+						(?<status>\d+)			\s
+						(?<bytes>-|\d+)			\s
+						\"(?<referer>.*?)\"		\s
 						\"(?<useragent>.*?)\"
 					}ox,
 
 	vhost_combined	=> qr{
 						^
-						(?<vhost>\S+)\
-						(?<host>\S+)\
-						(?<rfc>\S+)\
-						(?<authuser>\S+)\
-						\[(?<date>[^\]]+)\]\
-						\"(?<request>.*?)\"\
-						(?<status>\d+)\
-						(?<bytes>-|\d+)\
-						\"(?<referer>.*?)\"\
+						(?<vhost>\S+)			\s
+						(?<host>\S+)			\s
+						(?<rfc>\S+)				\s
+						(?<authuser>\S+)		\s
+						\[(?<date>[^\]]+)\]		\s
+						\"(?<request>.*?)\"		\s
+						(?<status>\d+)			\s
+						(?<bytes>-|\d+)			\s
+						\"(?<referer>.*?)\"		\s
 						\"(?<useragent>.*?)\"
 					}ox,
 );
@@ -143,8 +143,8 @@ FILE: foreach my $file (@ARGV ? @ARGV : ('-')) {
 
 		if (defined $parts{ 'request' } && $parts{ 'request' } =~ m{
 			^
-			(?<method>\S+)\
-			(?<uri>\S+)\
+			(?<method>\S+)		\s
+			(?<uri>\S+)			\s
 			(?<protocol>\S+)
 			$
 		}ox) {
