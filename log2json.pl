@@ -107,7 +107,7 @@ printf "[%s", ($opt_pretty ? "\n" : '');
 my $first_obj = 1;
 FILE: foreach my $file (@ARGV ? @ARGV : ('-')) {
 	my $fileh;
-	unless (open $fileh, '<', $file) {
+	unless (open $fileh, "<$file") {
 		printf STDERR "[%s] unable to open: %s\n", $file, $!;
 		next FILE;
 	}
